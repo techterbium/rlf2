@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -32,16 +32,18 @@ class Index extends Component {
         <Router>
           <Fragment>
             <Navbar light expand="md" style={{ backgroundColor: "#ab2708" }}>
-              <NavbarBrand href="/" style={{ color: "#fff" }}>
+              {/* <NavbarBrand href="/" style={{ color: "#fff" }}>
                 Rural Library Foundation
-              </NavbarBrand>
+              </NavbarBrand> */}
+              <Link to="/" style={{ color: "#fff" }}>Rural Library Foundation</Link>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                   <NavItem>
-                    <NavLink href="/lib/" style={{ color: "#fff" }}>
+                    {/* <NavLink href="/lib/" style={{ color: "#fff" }}>
                       Libraries
-                    </NavLink>
+                    </NavLink> */}
+                    <Link to="/lib" style={{ color: "#fff" }}>Libraries</Link>
                   </NavItem>
                   <NavItem>
                     <NavLink href="/sp/" style={{ color: "#fff" }}>
@@ -66,9 +68,10 @@ class Index extends Component {
                 </Nav>
               </Collapse>
             </Navbar>
-
-            <Route exact path="/" component={Home} />
-            <Route exact path="/lib" component={Library} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/lib" component={Library} />
+            </Switch>
           </Fragment>
         </Router>
       </div>
