@@ -1,16 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 
 import { Home, Library } from "./async/Comp";
+import {UnderConstruction} from "../components/common/UnderConstruction";
 
 class Index extends Component {
   constructor(props) {
@@ -20,9 +13,13 @@ class Index extends Component {
     };
   }
 
-  toggle = () => {
+  toggle = (...argument) => {
+    var newIsOpen =
+      argument.length === 1 && typeof argument[0] === "boolean"
+        ? argument[0]
+        : !this.state.isOpen;
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: newIsOpen
     });
   };
 
@@ -32,45 +29,50 @@ class Index extends Component {
         <Router>
           <Fragment>
             <Navbar light expand="md" style={{ backgroundColor: "#ab2708" }}>
-              {/* <NavbarBrand href="/" style={{ color: "#fff" }}>
+              <Link
+                to="/"
+                onClick={() => {
+                  this.toggle(false);
+                }}
+                className="nav-brand-item"
+              >
                 Rural Library Foundation
-              </NavbarBrand> */}
-              <Link to="/" style={{ color: "#fff" }}>Rural Library Foundation</Link>
+              </Link>
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                   <NavItem>
-                    {/* <NavLink href="/lib/" style={{ color: "#fff" }}>
+                    <Link to="/lib" onClick={this.toggle} className="nav-item">
                       Libraries
-                    </NavLink> */}
-                    <Link to="/lib" style={{ color: "#fff" }}>Libraries</Link>
+                    </Link>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/sp/" style={{ color: "#fff" }}>
-                      Sponsors
-                    </NavLink>
+                    <Link to="/sp" onClick={this.toggle} className="nav-item">
+                      Sponsorers
+                    </Link>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/ac/" style={{ color: "#fff" }}>
+                    <Link to="/ac" onClick={this.toggle} className="nav-item">
                       Activities
-                    </NavLink>
+                    </Link>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/ne/" style={{ color: "#fff" }}>
+                    <Link to="/ne" onClick={this.toggle} className="nav-item">
                       News
-                    </NavLink>
+                    </Link>
                   </NavItem>
                   <NavItem>
-                    <NavLink href="/cu/" style={{ color: "#fff" }}>
-                      Contact us
-                    </NavLink>
+                    <Link to="/cu" onClick={this.toggle} className="nav-item">
+                      Contact Us
+                    </Link>
                   </NavItem>
                 </Nav>
               </Collapse>
             </Navbar>
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/lib" component={Library} />
+              {/* <Route exact path="/lib" component={Library} /> */}
+              <Route component={UnderConstruction} />
             </Switch>
           </Fragment>
         </Router>
