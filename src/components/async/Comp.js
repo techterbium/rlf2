@@ -10,3 +10,9 @@ export const Library = Loadable({
     loader: () => import("../libraries/Library" /* webpackChunkName: "Library" */).then(m => m.Library),
     loading: () => <div>Loading..</div>
   });
+
+
+  export const RLFFooter = Loadable({
+    loader: () => import("../common/RLFFooter" /* webpackChunkName: "RLFFooter" */).then(m => m.RLFFooter),
+    loading: () => <div>Loading..</div>
+  });

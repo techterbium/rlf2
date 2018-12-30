@@ -2,8 +2,8 @@ import React, { Component, Fragment } from "react";
 import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 
-import { Home, Library } from "./async/Comp";
-import {UnderConstruction} from "../components/common/UnderConstruction";
+import { Home, Library, RLFFooter } from "./async/Comp";
+import { UnderConstruction } from "../components/common/UnderConstruction";
 
 class Index extends Component {
   constructor(props) {
@@ -71,11 +71,12 @@ class Index extends Component {
             </Navbar>
             <Switch>
               <Route exact path="/" component={Home} />
-              {/* <Route exact path="/lib" component={Library} /> */}
+              <Route exact path="/lib" component={Library} />
               <Route component={UnderConstruction} />
             </Switch>
           </Fragment>
         </Router>
+        <RLFFooter />
       </div>
     );
   }
