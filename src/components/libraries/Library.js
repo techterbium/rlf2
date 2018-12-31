@@ -1,11 +1,19 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
+import Iframe from "react-iframe";
 export class Library extends Component {
-    render() {
-        return (
-            <div>
-                Library Component
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Iframe
+          url="https://www.google.com/maps/d/embed?mid=1kQW8nxO7k9cgDxCqYlDv1efnqpASbd55"
+          width="100%"
+          height="400px"
+          id="mmyId"
+          display="initial"
+          position="relative"
+          allowFullScreen
+        />
+      </div>
+    );
+  }
 }

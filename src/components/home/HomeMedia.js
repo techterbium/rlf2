@@ -3,44 +3,52 @@ import styled from "styled-components";
 import MediaQuery from "react-responsive";
 
 const MediaContainer = styled.div`
-width:100%
-height: 100%;
-display: flex;
-padding: 10px;
-box-shadow: 1px;
-margin: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  border: 0.5px solid #fafafa;
+  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.15);
+  border-radius: 10px;
+`;
+
+const TitleContainer = styled.span`
+text-align: ${props => props.side};
 `;
 
 const MediaImageContainer = styled.div`
-  width: 100%;
-  height: 100px;
+  max-width: 30%;
+  width: auto;
+  max-height: 100px;
+  height: auto;
 `;
 
 const MediaBody = styled.div`
   width: auto;
   height: auto;
-  padding: 10px;
+  margin: 10px;
 `;
 
 const imgStyle = {
-  width: "30%",
-  height: "100%",
-  borderRadius: "5px",
-  padding: "10px"
+  width: "100%",
+  height: "auto",
+  borderRadius: "25px"
 };
 
 export class HomeMedia extends Component {
   render() {
-    let ImageComp = <img src={"/images/carasoul1.jpg"} style={imgStyle} />;
+    let { data } = this.props;
+    let ImageComp = data.imageUrl ? <img src={data.imageUrl} style={imgStyle} /> : null;
     let LeftImageComp = this.props.type === "left" ? ImageComp : null;
     let RightImageComp = this.props.type === "right" ? ImageComp : null;
 
     return (
       <MediaQuery query="(min-device-width: 24px)">
         <MediaContainer>
-          {LeftImageComp}
+          <MediaImageContainer>{LeftImageComp}</MediaImageContainer>
           <MediaBody>
-            <h3>Thi is title of Media Element</h3>
+            <TitleContainer side={this.props.type}> <h3>Media Title</h3> </TitleContainer>
             <p>
               Et amet dolor magna reprehenderit quis nisi. Tempor voluptate
               officia officia ad sit quis sint. Eiusmod incididunt laboris irure
@@ -52,7 +60,7 @@ export class HomeMedia extends Component {
               proident.
             </p>
           </MediaBody>
-          {RightImageComp}
+          <MediaImageContainer>{RightImageComp}</MediaImageContainer>
         </MediaContainer>
       </MediaQuery>
     );
