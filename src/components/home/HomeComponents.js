@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import MediaQuery from "react-responsive";
-import * as HomeStyles from "./Styles"
+import * as HomeStyles from "./Styles";
+
+const cStyle = {
+  width: "100%",
+  height: "33rem"
+
+}
 
 export class Carousel extends Component {
   render() {
@@ -17,36 +23,36 @@ export class Carousel extends Component {
         <Slider {...settings}>
           <div>
             <img
-              style={{ width: "100%", height: "400px" }}
-              src={"images/carasoul1.jpg"}
+              style={cStyle}
+              src={"images/c1.jpg"}
               alt="Rural Library Foundation"
             />
           </div>
           <div>
             <img
-              style={{ width: "100%", height: "400px" }}
-              src={"images/carasoul2.jpg"}
+              style={cStyle}
+              src={"images/c2.jpg"}
               alt="Rural Library Foundation"
             />
           </div>
           <div>
             <img
-              style={{ width: "100%", height: "400px" }}
-              src={"images/carasoul3.jpg"}
+              style={cStyle}
+              src={"images/c3.jpg"}
               alt="Rural Library Foundation"
             />
           </div>
           <div>
             <img
-              style={{ width: "100%", height: "400px" }}
-              src={"images/carasoul4.jpg"}
+              style={cStyle}
+              src={"images/c4.jpg"}
               alt="Rural Library Foundation"
             />
           </div>
           <div>
             <img
-              style={{ width: "100%", height: "400px" }}
-              src={"images/carasoul5.jpg"}
+              style={cStyle}
+              src={"images/c5.jpg"}
               alt="Rural Library Foundation"
             />
           </div>
