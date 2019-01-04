@@ -28,7 +28,7 @@ class Index extends Component {
       <div>
         <Router>
           <Fragment>
-            <Navbar light expand="md" style={{ backgroundColor: "#ab2708" }}>
+            <Navbar light expand="md" style={{ backgroundColor: "#ab2708", position: "sticky", top: "0px", zIndex: "1"}}>
               <Link
                 to="/"
                 onClick={() => {

@@ -33,3 +33,12 @@ export const imgStyle = {
   height: "auto",
   borderRadius: "25px"
 };
+
+
+
+export const StatsContainer = styled.div`
+width: 100%;
+height: 350px;
+border-size: 1px;
+background-color: #afafaf;
+`;

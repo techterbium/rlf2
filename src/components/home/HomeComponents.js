@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import MediaQuery from "react-responsive";
-import * as HomeStyles from "./Styles";
+import * as Styles from "./Styles";
+import { StatBoxPanel } from "./../common/StatBoxPanel";
+import * as Data from "./../common/data";
 
 const cStyle = {
   width: "100%",
   height: "33rem"
-
-}
+};
 
 export class Carousel extends Component {
   render() {
@@ -61,20 +62,26 @@ export class Carousel extends Component {
     );
   }
 }
-
 export class HomeMedia extends Component {
   render() {
     let { data } = this.props;
-    let ImageComp = data.imageUrl ? <img src={data.imageUrl} style={HomeStyles.imgStyle} /> : null;
+    let ImageComp = data.imageUrl ? (
+      <img src={data.imageUrl} style={Styles.imgStyle} />
+    ) : null;
     let LeftImageComp = this.props.type === "left" ? ImageComp : null;
     let RightImageComp = this.props.type === "right" ? ImageComp : null;
 
     return (
       <MediaQuery query="(min-device-width: 24px)">
-        <HomeStyles.MediaContainer>
-          <HomeStyles.MediaImageContainer>{LeftImageComp}</HomeStyles.MediaImageContainer>
-          <HomeStyles.MediaBody>
-            <HomeStyles.TitleContainer side={this.props.type}> <h3>Media Title</h3> </HomeStyles.TitleContainer>
+        <Styles.MediaContainer>
+          <Styles.MediaImageContainer>
+            {LeftImageComp}
+          </Styles.MediaImageContainer>
+          <Styles.MediaBody>
+            <Styles.TitleContainer side={this.props.type}>
+              {" "}
+              <h3>Media Title</h3>{" "}
+            </Styles.TitleContainer>
             <p>
               Et amet dolor magna reprehenderit quis nisi. Tempor voluptate
               officia officia ad sit quis sint. Eiusmod incididunt laboris irure
@@ -85,10 +92,18 @@ export class HomeMedia extends Component {
               deserunt ipsum in laborum cillum veniam ut excepteur officia
               proident.
             </p>
-          </HomeStyles.MediaBody>
-          <HomeStyles.MediaImageContainer>{RightImageComp}</HomeStyles.MediaImageContainer>
-        </HomeStyles.MediaContainer>
+          </Styles.MediaBody>
+          <Styles.MediaImageContainer>
+            {RightImageComp}
+          </Styles.MediaImageContainer>
+        </Styles.MediaContainer>
       </MediaQuery>
     );
+  }
+}
+
+export class HomeStats extends Component {
+  render() {
+    return <StatBoxPanel data={Data.homeStats}/>;
   }
 }
