@@ -44,7 +44,7 @@ export const StatBox = ({ data }) => {
 
 export class StatBoxPanel extends Component {
   render() {
-    let Boxes = this.props.data.map(stat => <StatBox data={stat} />);
+    let Boxes = this.props.data.map(stat => <StatBox data={stat} key={stat.title}/>);
     return <StatBoxesContainer>{Boxes}</StatBoxesContainer>;
   }
 }
