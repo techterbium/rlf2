@@ -62,3 +62,8 @@ export const HomeTimeLinePanel = Loadable({
   loader: () => import("./HomeTimeLine" /* webpackChunkName: "HomeTimeLine" */).then(m => m.HomeTimeLine),
   loading: () => <div>Loading..</div>
 });
+
+export const HomeTimeLinePanel1 = Loadable({
+  loader: () => import("./HomeTimeLine2" /* webpackChunkName: "HomeTimeLine1" */).then(m => m.HomeTimeLine2),
+  loading: () => <div>Loading..</div>
+});
