@@ -56,3 +56,9 @@ export const CarouselPanel = Loadable({
   loader: () => Promise.resolve(Carousel),
   loading: () => <div>Loading..</div>
 });
+
+
+export const HomeTimeLinePanel = Loadable({
+  loader: () => import("./HomeTimeLine" /* webpackChunkName: "HomeTimeLine" */).then(m => m.HomeTimeLine),
+  loading: () => <div>Loading..</div>
+});

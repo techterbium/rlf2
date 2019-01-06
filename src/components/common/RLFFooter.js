@@ -13,9 +13,9 @@ export class RLFFooter extends Component {
   render() {
     return (
       <FooterContainer>
-        <div>&copy; Rural Library Foundation, Hyderabad, India</div>
-        <div>www.rlfindia.org</div>
-        <div> Phone No: +91-999-999-9999</div>
+        <div>Rural Library Foundation, Hyderabad, India</div>
+        <div> Phone No: +91-949-238-3100</div>
+        <div>www.rlfindia.org, &copy; All rights reserved. </div>
       </FooterContainer>
     );
   }

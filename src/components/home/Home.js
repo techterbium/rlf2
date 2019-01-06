@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CarouselPanel, HomeMediaPanel, HomeStatsPanel } from "./HomeComponents";
+import { CarouselPanel, HomeMediaPanel, HomeStatsPanel, HomeTimeLinePanel } from "./HomeComponents";
 
 export class Home extends Component {
   render() {
@@ -8,6 +8,7 @@ export class Home extends Component {
         <CarouselPanel />
         <HomeMediaPanel />
         <HomeStatsPanel />
+        <HomeTimeLinePanel />
       </div>
     );
   }
