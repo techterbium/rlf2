@@ -4,6 +4,7 @@ import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 
 import { Home, Library, RLFFooter } from "./async/Comp";
 import { UnderConstruction } from "../components/common/UnderConstruction";
+import * as Colors from "./common/colors";
 
 class Index extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class Index extends Component {
       <div>
         <Router>
           <Fragment>
-            <Navbar light expand="md" style={{ backgroundColor: "#ab2708", position: "sticky", top: "0px", zIndex: "1"}}>
+            <Navbar light expand="md" style={{ backgroundColor: `${Colors.PrimaryColor}`, position: "sticky", top: "0px", zIndex: "1"}}>
               <Link
                 to="/"
                 onClick={() => {

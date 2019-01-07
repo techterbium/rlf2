@@ -4,6 +4,7 @@ import Loadable from "react-loadable";
 
 import { StatBoxPanel } from "./../common/StatBoxPanel";
 import * as Data from "./../common/data";
+import { LoadingComponent } from "./../async/Comp";
 
 const cStyle = {
   width: "100%",
@@ -22,9 +23,9 @@ class Carousel extends Component {
 
     var Images = Data.homecarouselImages.map(img => (
       <Fragment key={img}>
-      <div>
-        <img style={cStyle} src={img} alt="Rural Library Foundation" />
-      </div>
+        <div>
+          <img style={cStyle} src={img} alt="Rural Library Foundation" />
+        </div>
       </Fragment>
     ));
 
@@ -43,27 +44,35 @@ class HomeStats extends Component {
 }
 
 export const HomeMediaPanel = Loadable({
-  loader: () => import("./HomeMediaPanel" /* webpackChunkName: "HomeMediaPanel" */).then(m => m.HomeMediaPanel),
-  loading: () => <div>Loading..</div>
+  loader: () =>
+    import("./HomeMediaPanel" /* webpackChunkName: "HomeMediaPanel" */).then(
+      m => m.HomeMediaPanel
+    ),
+  loading: () => LoadingComponent
 });
 
 export const HomeStatsPanel = Loadable({
   loader: () => Promise.resolve(HomeStats),
-  loading: () => <div>Loading..</div>
+  loading: () => LoadingComponent
 });
 
 export const CarouselPanel = Loadable({
   loader: () => Promise.resolve(Carousel),
-  loading: () => <div>Loading..</div>
+  loading: () => LoadingComponent
 });
 
-
 export const HomeTimeLinePanel = Loadable({
-  loader: () => import("./HomeTimeLine" /* webpackChunkName: "HomeTimeLine" */).then(m => m.HomeTimeLine),
-  loading: () => <div>Loading..</div>
+  loader: () =>
+    import("./HomeTimeLine" /* webpackChunkName: "HomeTimeLine" */).then(
+      m => m.HomeTimeLine
+    ),
+  loading: () => LoadingComponent
 });
 
 export const HomeTimeLinePanel1 = Loadable({
-  loader: () => import("./HomeTimeLine2" /* webpackChunkName: "HomeTimeLine1" */).then(m => m.HomeTimeLine2),
-  loading: () => <div>Loading..</div>
+  loader: () =>
+    import("./HomeTimeLine2" /* webpackChunkName: "HomeTimeLine1" */).then(
+      m => m.HomeTimeLine2
+    ),
+  loading: () => LoadingComponent
 });

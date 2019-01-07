@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import HorizontalTimeline from "react-horizontal-timeline";
 import { homeTimeLineData } from "./../common/data";
-
+import * as Colors from "./../common/colors";
 export class HomeTimeLine extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +29,7 @@ export class HomeTimeLine extends Component {
             labelWidth={25}
             style={{
               background: "#fafafa",
-              foreground: "#ab2708",
+              foreground: `${Colors.PrimaryColor}`,
               outline: "#adadad"
             }}
           />

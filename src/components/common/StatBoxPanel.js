@@ -1,10 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import styled from "styled-components";
+import * as Colors from "./../common/colors";
+
+const StatBoxHeader = styled.div`
+font-size: 3em;
+color: ${Colors.PrimaryColor};
+`;
 
 const StatBoxesContainer = styled.div`
-  width: 100%;
+  width: auto;
   display: flex;
   flex-wrap: wrap;
+  margin: 2vw 2vw 0 2vw;
   justify-content: space-between;
   box-sizing: border-box;
 
@@ -16,14 +23,15 @@ const StatBoxesContainer = styled.div`
 export const StatBoxContainer = styled.div`
   width: 20vw;
   height: 15vw;
-  background-color: #afafaf;
+  background-color: ${Colors.PrimaryColor};
   margin: 1vw;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 4vw;
+  font-size: 3vw;
 
   @media (max-width: 700px) {
     width: 80vw;
@@ -44,7 +52,16 @@ export const StatBox = ({ data }) => {
 
 export class StatBoxPanel extends Component {
   render() {
-    let Boxes = this.props.data.map(stat => <StatBox data={stat} key={stat.title}/>);
-    return <StatBoxesContainer>{Boxes}</StatBoxesContainer>;
+    let Boxes = this.props.data.map(stat => (
+      <StatBox data={stat} key={stat.title} />
+    ));
+    return (
+      <Fragment>
+        {/* <StatBoxHeader>Highlights of RLF..</StatBoxHeader> */}
+      <StatBoxesContainer>
+        {Boxes}
+      </StatBoxesContainer>
+      </Fragment>
+    );
   }
 }
